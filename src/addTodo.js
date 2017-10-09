@@ -24,7 +24,7 @@ class AddTodo extends Component {
                 <button
                     type="submit"
                     className="input"
-                    onclick={() => this.props.addTodo(this.state.inputValue)}>
+                    onClick={() => this.props.addTodo(this.state.inputValue)}>
                     Add Todo 
                     </button>
             </div>
