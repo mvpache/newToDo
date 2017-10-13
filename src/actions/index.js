@@ -6,7 +6,13 @@ export const addTodo = (todo) => {
         payload: {
             id: idNum++,
             value: todo,
-            completed: 'Status: Uncompleted'
         },
     };
+};
+
+export const deleteTodo = (todo, index) => {
+  return {
+    type: 'DELETE_TODO',
+    payload: { todo, index }
+  };
 };

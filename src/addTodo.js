@@ -23,7 +23,6 @@ class AddTodo extends Component {
                 <input className="input" type="text" value={this.state.inputValue} onChange={this.handleChange} />
                 <button
                     type="submit"
-                    className="input"
                     onClick={() => this.props.addTodo(this.state.inputValue)}>
                     Add Todo 
                     </button>

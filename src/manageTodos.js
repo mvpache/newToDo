@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { deleteTodo } from './actions';
+import { bindActionCreators } from 'redux';
 
 class ManageTodos extends Component {
   render() {
@@ -10,7 +12,10 @@ class ManageTodos extends Component {
             console.log(this.props),
               <li
                 key={index}>
-                {todo.id} {todo.value}
+                {todo.id} {todo.value} {todo.completed} <button
+                  onClick={() => this.props.deleteTodo(todo)}>
+                  X
+                </button>
               </li>
             );
          })}
@@ -25,4 +30,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ManageTodos);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({deleteTodo: deleteTodo}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManageTodos);
